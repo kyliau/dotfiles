@@ -1,44 +1,68 @@
-syntax enable
-filetype on
-"au BufNewFile,BufRead *.rvt set filetype=tcl
+
+" turn on syntax highlighting
+syntax on
+
+" display right margin at 80 char
+set colorcolumn=80
+
+" function of backspace character
+set backspace=indent,eol,start
 
 " show line number
 set number
 
-" hightlight column at 80
-set colorcolumn=80
-
-" a <Tab> in front of a line inserts blanks according to 'shiftwidth'
-" a <Backspace> will delete a 'shiftwidth' worth of space at the start of line
-set smarttab
-              
-" copy indent from current line when starting a new line
-set autoindent
-
-filetype plugin indent on
-
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+" use spaces instead of tab
 set expandtab
 
-colorscheme desert
-"colorscheme elflord 
+" tabstop tells vim how many columns a tab counts for.
+set tabstop=4
+
+" shiftwidth controls how many columns text is indented with the reindent
+" operations (<< and >>) and automatic C-style indentation
+set shiftwidth=4
+
+" softtabstop controls how many columns vim uses when Tab is hit in insert
+" mode. When expandtab is set, vim will always use the appripriate number of
+" spaces.
+set softtabstop=4
 
 " highlight search
 set hlsearch
 
-" highlight current line
+" underline the current line
 set cursorline
 
-" do not wrap
+" no line wrapping
 set nowrap
 
-" need for airline plugin
-set laststatus=2
-
-" switch to present working directory
+" automatically change to directory where current file is located
 set autochdir
 
-" set visual bell (hack to disable audible bell)
-set vb
+colorscheme desert
+
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+"autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+"autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+"autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+"autocmd BufWinLeave * call clearmatches()
+
+set autoindent
+
+if has("autocmd")
+  " Enable file type detection.
+  " Use the default filetype settings, so that mail gets 'tw' set to 72,
+  " 'cindent' is on in C files, etc.
+  " Also load indent files, to automatically do language-dependent indenting.
+  filetype plugin indent on
+  autocmd FileType xsd setlocal shiftwidth=2 tabstop=2 softtabstop=2
+endif
+
+" vim status line at the bottom
+set laststatus=2
+
+" set the tab background and foreground color
+hi TabLineSel ctermfg=Red ctermbg=Yellow
+
+" enable mouse scrolling and selection of tab
+"set mouse=a
