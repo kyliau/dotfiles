@@ -1,6 +1,8 @@
-
 " turn on syntax highlighting
 syntax on
+
+" Wrap text and comment after 79 characters
+set textwidth=79
 
 " display right margin at 80 char
 set colorcolumn=80
@@ -50,7 +52,7 @@ set splitright
 set spell spelllang=en_us
 
 " the j flag discards leading whitespace and comment symbol when joining two lines
-set formatoptions=croqlj
+set formatoptions+=j
 
 colorscheme desert
 
