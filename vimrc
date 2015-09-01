@@ -52,7 +52,7 @@ set splitright
 set spell spelllang=en_us
 
 " the j flag discards leading whitespace and comment symbol when joining two lines
-set formatoptions+=j
+set formatoptions+=aj
 
 colorscheme desert
 
