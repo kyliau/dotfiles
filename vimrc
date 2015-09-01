@@ -38,6 +38,20 @@ set nowrap
 " automatically change to directory where current file is located
 set autochdir
 
+set autoindent
+
+" vim status line at the bottom
+set laststatus=2
+
+set modeline
+
+set splitright
+
+set spell spelllang=en_us
+
+" the j flag discards leading whitespace and comment symbol when joining two lines
+set formatoptions=croqlj
+
 colorscheme desert
 
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -47,8 +61,6 @@ match ExtraWhitespace /\s\+$/
 "autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 "autocmd BufWinLeave * call clearmatches()
 
-set autoindent
-
 if has("autocmd")
   " Enable file type detection.
   " Use the default filetype settings, so that mail gets 'tw' set to 72,
@@ -57,9 +69,6 @@ if has("autocmd")
   filetype plugin indent on
   autocmd FileType xsd setlocal shiftwidth=2 tabstop=2 softtabstop=2
 endif
-
-" vim status line at the bottom
-set laststatus=2
 
 " set the tab background and foreground color
 hi TabLineSel ctermfg=Red ctermbg=Yellow
